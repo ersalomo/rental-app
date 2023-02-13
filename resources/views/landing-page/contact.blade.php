@@ -1,19 +1,14 @@
      @extends('landing-page.landing-page', ['title' => 'Contact'])
      @section('content')
-         <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/landing-page/images/bg_3.jpg');"
-             data-stellar-background-ratio="0.5">
-             <div class="overlay"></div>
-             <div class="container">
-                 <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-                     <div class="col-md-9 ftco-animate pb-5">
-                         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                                         class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
-                                     class="ion-ios-arrow-forward"></i></span></p>
-                         <h1 class="mb-3 bread">Contact Us</h1>
-                     </div>
-                 </div>
-             </div>
-         </section>
+         <x-hero-section>
+             <p class="breadcrumbs">
+                 <span class="mr-2">
+                     <a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a>
+                 </span>
+                 <span>Contact <i class="ion-ios-arrow-forward"></i></span>
+             </p>
+             <h1 class="mb-3 bread">Contact Us</h1>
+         </x-hero-section>
 
          <section class="ftco-section contact-section">
              <div class="container">
@@ -62,8 +57,12 @@
                              </div>
                              <div class="form-group">
                                  <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                                 <p class="d-inline">or </p>
+                                 <a href="/sign-up" class="btn btn-primary py-3 px-5">Sign Up
+                                 </a>
                              </div>
                          </form>
+
 
                      </div>
                  </div>

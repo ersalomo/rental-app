@@ -59,6 +59,9 @@
                     <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
                         <a href="/contact" class="nav-link">Contact</a>
                     </li>
+                    <li class="nav-item {{ request()->is('sign-up') ? 'active' : '' }}">
+                        <a href="/sign-up" class="nav-link">Sign Up</a>
+                    </li>
                 </ul>
             </div>
         </div>
