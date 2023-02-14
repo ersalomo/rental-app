@@ -5,28 +5,7 @@
     <title>Rental App | {{ isset($title) ? $title : 'Rental App' }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="/landing-page/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="/landing-page/css/animate.css">
-
-    <link rel="stylesheet" href="/landing-page/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/landing-page/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/landing-page/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="/landing-page/css/aos.css">
-
-    <link rel="stylesheet" href="/landing-page/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="/landing-page/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="landing-page/css/jquery.timepicker.css">
-
-
-    <link rel="stylesheet" href="/landing-page/css/flaticon.css">
-    <link rel="stylesheet" href="/landing-page/css/icomoon.css">
-    <link rel="stylesheet" href="/landing-page/css/style.css">
+    @include('layouts.styles.css')
 </head>
 
 <body>
@@ -152,23 +131,7 @@
         </svg></div>
 
 
-    <script src="/landing-page/js/jquery.min.js"></script>
-    <script src="/landing-page/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="/landing-page/js/popper.min.js"></script>
-    <script src="/landing-page/js/bootstrap.min.js"></script>
-    <script src="/landing-page/js/jquery.easing.1.3.js"></script>
-    <script src="/landing-page/js/jquery.waypoints.min.js"></script>
-    <script src="/landing-page/js/jquery.stellar.min.js"></script>
-    <script src="/landing-page/js/owl.carousel.min.js"></script>
-    <script src="/landing-page/js/jquery.magnific-popup.min.js"></script>
-    <script src="/landing-page/js/aos.js"></script>
-    <script src="/landing-page/js/jquery.animateNumber.min.js"></script>
-    <script src="/landing-page/js/bootstrap-datepicker.js"></script>
-    <script src="/landing-page/js/jquery.timepicker.min.js"></script>
-    <script src="/landing-page/js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="/landing-page/js/google-map.js"></script>
-    <script src="/landing-page/js/main.js"></script>
+    @include('layouts.styles.js')
 
 </body>
 
