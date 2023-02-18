@@ -35,6 +35,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $with = [
+        // 'review'
+    ];
     /**
      * The attributes that should be cast.
      *
@@ -50,4 +53,15 @@ class User extends Authenticatable
     {
         return new Attribute(set: fn ($value) => bcrypt($value));
     }
+
+    public function message()
+    {
+    }
+    public function conversation()
+    {
+    }
+    // public function review()
+    // {
+    //     return $this->hasOne(ReviewCar::class, 'user_id');
+    // }
 }

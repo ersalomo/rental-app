@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\{AuthController, MainController, DetailCarController};
 
 
 Route::view('sign-up', 'auth.register')->name('sign-up');
@@ -14,6 +14,7 @@ Route::group([
     'middleware' => ['auth:web'],
     'as' => 'main.',
 ], function () {
-    Route::view('main', 'content.main')->name('main');
-    Route::view('detail', 'content.detail')->name('detail');
+    Route::get('main', MainController::class)->name('main');
+    Route::get('detail', DetailCarController::class)->name('detail');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

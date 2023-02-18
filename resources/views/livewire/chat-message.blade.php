@@ -17,7 +17,7 @@
                              <img width="82" src="/architectui/assets/images/avatars/1.jpg" alt="">
                          </div>
                      </div>
-                     <h4 class="mb-0 text-nowrap">Chad Evans
+                     <h4 class="mb-0 text-nowrap">{{ __($conversation[0]->user_id_2) }}
                          <div class="opacity-7">Last Seen Online:
                              <span class="opacity-8">10 minutes ago</span>
                          </div>
@@ -68,153 +68,65 @@
                  </div>
              </div>
              <div class="chat-wrapper">
-                 <div class="chat-box-wrapper">
-                     <div>
-                         <div class="avatar-icon-wrapper mr-1">
-                             <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
-                             </div>
-                             <div class="avatar-icon avatar-icon-lg rounded">
-                                 <img src="/architectui/assets/images/avatars/2.jpg" alt="">
-                             </div>
-                         </div>
-                     </div>
-                     <div>
-                         <div class="chat-box">But I must explain to you how all this mistaken idea of
-                             denouncing pleasure and praising pain was born and I will give you a complete
-                             account of the system.</div>
-                         <small class="opacity-6">
-                             <i class="fa fa-calendar-alt mr-1"></i>
-                             11:01 AM | Yesterday
-                         </small>
-                     </div>
-                 </div>
-                 <div class="float-right">
-                     <div class="chat-box-wrapper chat-box-wrapper-right">
-                         <div>
-                             <div class="chat-box">Expound the actual teachings of the great explorer of the
-                                 truth, the master-builder of human happiness.</div>
-                             <small class="opacity-6">
-                                 <i class="fa fa-calendar-alt mr-1"></i>
-                                 11:01 AM | Yesterday
-                             </small>
-                         </div>
-                         <div>
-                             <div class="avatar-icon-wrapper ml-1">
-                                 <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
-                                 </div>
-                                 <div class="avatar-icon avatar-icon-lg rounded">
-                                     <img src="/architectui/assets/images/avatars/2.jpg" alt="">
+                 @forelse($conversation[0]->message as $msg)
+                     @if (auth()->user()->id != $msg->user_id)
+                         <div class="chat-box-wrapper">
+                             <div>
+                                 <div class="avatar-icon-wrapper mr-1">
+                                     <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
+                                     </div>
+                                     <div class="avatar-icon avatar-icon-lg rounded">
+                                         <img src="/architectui/assets/images/avatars/2.jpg" alt="">
+                                     </div>
                                  </div>
                              </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="chat-box-wrapper">
-                     <div>
-                         <div class="avatar-icon-wrapper mr-1">
-                             <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
-                             </div>
-                             <div class="avatar-icon avatar-icon-lg rounded">
-                                 <img src="/architectui/assets/images/avatars/2.jpg" alt="">
+                             <div>
+                                 <div class="chat-box">{{ $msg->content }}</div>
+                                 <small class="opacity-6">
+                                     <i class="fa fa-calendar-alt mr-1"></i>
+                                     11:01 AM | Yesterday
+                                 </small>
                              </div>
                          </div>
-                     </div>
-                     <div>
-                         <div class="chat-box">But I must explain to you how all this mistaken idea of
-                             denouncing pleasure and praising pain was born and I will give you a complete
-                             account of the system.</div>
-                         <small class="opacity-6">
-                             <i class="fa fa-calendar-alt mr-1"></i>
-                             11:01 AM | Yesterday
-                         </small>
-                     </div>
-                 </div>
-                 <div class="float-right">
-                     <div class="chat-box-wrapper chat-box-wrapper-right">
-                         <div>
-                             <div class="chat-box">Denouncing pleasure and praising pain was born and I will
-                                 give you a complete account.</div>
-                             <small class="opacity-6">
-                                 <i class="fa fa-calendar-alt mr-1"></i>
-                                 11:01 AM | Yesterday
-                             </small>
-                         </div>
-                         <div>
-                             <div class="avatar-icon-wrapper ml-1">
-                                 <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
+                     @else
+                         <div class="float-right chat-box-wrapper">
+                             <div class="chat-box-wrapper chat-box-wrapper-right">
+                                 <div>
+                                     <div class="chat-box">{{ $msg->content }}</div>
+                                     <small class="opacity-6">
+                                         <i class="fa fa-calendar-alt mr-1"></i>
+                                         11:01 AM | Yesterday
+                                     </small>
                                  </div>
-                                 <div class="avatar-icon avatar-icon-lg rounded">
-                                     <img src="/architectui/assets/images/avatars/3.jpg" alt="">
+                                 <div>
+                                     <div class="avatar-icon-wrapper ml-1">
+                                         <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
+                                         </div>
+                                         <div class="avatar-icon avatar-icon-lg rounded">
+                                             <img src="/architectui/assets/images/avatars/2.jpg" alt="">
+                                         </div>
+                                     </div>
                                  </div>
                              </div>
                          </div>
-                     </div>
-                 </div>
-                 <div class="chat-box-wrapper">
-                     <div>
-                         <div class="avatar-icon-wrapper mr-1">
-                             <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
-                             </div>
-                             <div class="avatar-icon avatar-icon-lg rounded">
-                                 <img src="/architectui/assets/images/avatars/2.jpg" alt="">
-                             </div>
-                         </div>
-                     </div>
-                     <div>
-                         <div class="chat-box">Born and I will give you a complete account of the system.
-                         </div>
-                         <small class="opacity-6">
-                             <i class="fa fa-calendar-alt mr-1"></i>
-                             11:01 AM | Yesterday
-                         </small>
-                     </div>
-                 </div>
-                 <div class="float-right">
-                     <div class="chat-box-wrapper chat-box-wrapper-right">
-                         <div>
-                             <div class="chat-box">The master-builder of human happiness.</div>
-                             <small class="opacity-6">
-                                 <i class="fa fa-calendar-alt mr-1"></i>
-                                 11:01 AM | Yesterday
-                             </small>
-                         </div>
-                         <div>
-                             <div class="avatar-icon-wrapper ml-1">
-                                 <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
-                                 </div>
-                                 <div class="avatar-icon avatar-icon-lg rounded">
-                                     <img src="/architectui/assets/images/avatars/3.jpg" alt="">
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="chat-box-wrapper">
-                     <div>
-                         <div class="avatar-icon-wrapper mr-1">
-                             <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
-                             </div>
-                             <div class="avatar-icon avatar-icon-lg rounded">
-                                 <img src="/architectui/assets/images/avatars/2.jpg" alt="">
-                             </div>
-                         </div>
-                     </div>
-                     <div>
-                         <div class="chat-box">Mistaken idea of denouncing pleasure and praising pain was
-                             born and I will give you</div>
-                         <small class="opacity-6">
-                             <i class="fa fa-calendar-alt mr-1"></i>
-                             11:01 AM | Yesterday
-                         </small>
-                     </div>
-                 </div>
+                     @endif
+
+                 @empty
+                     <p>No Message found</p>
+                 @endforelse
+
+
              </div>
              <div class="app-inner-layout__bottom-pane d-block text-center">
                  <div class="mb-0 position-relative row form-group">
-                     <div class="col-sm-12">
-                         <input placeholder="Write here and hit enter to send..." type="text"
+                     <div class="col-sm-12 d-flex">
+                         <input wire:model="message" placeholder="Write here and hit enter to send..." type="text"
                              class="form-control-lg form-control">
+                         <button wire:click="sendMessage" class="btn btn-primary">send</button>
                      </div>
+                     @error('message')
+                         <span class="text-danger">{{ $message }}</span>
+                     @enderror
                  </div>
              </div>
          </div>
@@ -236,134 +148,33 @@
              </ul>
          </div>
          <ul class="nav flex-column">
-             <li class="nav-item">
-                 <button type="button" tabindex="0" class="dropdown-item">
-                     <div class="widget-content p-0">
-                         <div class="widget-content-wrapper">
-                             <div class="widget-content-left mr-3">
-                                 <div class="avatar-icon-wrapper">
-                                     <div class="badge badge-bottom badge-success badge-dot badge-dot-lg">
-                                     </div>
-                                     <div class="avatar-icon">
-                                         <img src="/architectui/assets/images/avatars/2.jpg" alt="">
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="widget-content-left">
-                                 <div class="widget-heading">Alina Mcloughlin</div>
-                                 <div class="widget-subheading">Aenean vulputate eleifend tellus.</div>
-                             </div>
-                         </div>
-                     </div>
-                 </button>
-             </li>
-             <li class="nav-item">
-                 <button type="button" tabindex="0" class="dropdown-item active">
-                     <div class="widget-content p-0">
-                         <div class="widget-content-wrapper">
-                             <div class="widget-content-left mr-3">
-                                 <div class="avatar-icon-wrapper">
-                                     <div class="badge badge-bottom badge-success badge-dot badge-dot-lg">
-                                     </div>
-                                     <div class="avatar-icon">
-                                         <img src="/architectui/assets/images/avatars/3.jpg" alt="">
+             @forelse($users as $user)
+                 <li class="nav-item">
+                     <button type="button" tabindex="0" class="dropdown-item">
+                         <div class="widget-content p-0">
+                             <div class="widget-content-wrapper">
+                                 <div class="widget-content-left mr-3">
+                                     <div class="avatar-icon-wrapper">
+                                         <div class="badge badge-bottom badge-success badge-dot badge-dot-lg">
+                                         </div>
+                                         <div class="avatar-icon">
+                                             <img src="/architectui/assets/images/avatars/2.jpg" alt="">
+                                         </div>
                                      </div>
                                  </div>
-                             </div>
-                             <div class="widget-content-left">
-                                 <div class="widget-heading">Chad Evans</div>
-                                 <div class="widget-subheading">Vivamus elementum semper nisi.</div>
-                             </div>
-                         </div>
-                     </div>
-                 </button>
-             </li>
-             <li class="nav-item">
-                 <button type="button" tabindex="0" class="dropdown-item">
-                     <div class="widget-content p-0">
-                         <div class="widget-content-wrapper">
-                             <div class="widget-content-left mr-3">
-                                 <div class="avatar-icon-wrapper">
-                                     <div class="badge badge-bottom badge-success badge-dot badge-dot-lg">
-                                     </div>
-                                     <div class="avatar-icon">
-                                         <img src="/architectui/assets/images/avatars/3.jpg" alt="">
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="widget-content-left">
-                                 <div class="widget-heading">Ella-Rose Henry</div>
-                                 <div class="widget-subheading">Etiam sit amet orci eget eros faucibus</div>
-                             </div>
-                         </div>
-                     </div>
-                 </button>
-             </li>
-             <li class="nav-item">
-                 <button type="button" tabindex="0" class="dropdown-item">
-                     <div class="widget-content p-0">
-                         <div class="widget-content-wrapper">
-                             <div class="widget-content-left mr-3">
-                                 <div class="avatar-icon-wrapper">
-                                     <div class="badge badge-bottom badge-success badge-dot badge-dot-lg">
-                                     </div>
-                                     <div class="avatar-icon">
-                                         <img src="/architectui/assets/images/avatars/2.jpg" alt="">
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="widget-content-left">
-                                 <div class="widget-heading">Ruben Tillman</div>
-                                 <div class="widget-subheading">Lorem ipsum dolor sit amet, consectetuer
+                                 <div class="widget-content-left">
+                                     <div class="widget-heading">{{ __($user->name) }}</div>
+                                     <div class="widget-subheading">{{ __(\Str::random(10)) }}</div>
                                  </div>
                              </div>
                          </div>
-                     </div>
-                 </button>
-             </li>
-             <li class="nav-item">
-                 <button type="button" tabindex="0" class="dropdown-item">
-                     <div class="widget-content p-0">
-                         <div class="widget-content-wrapper">
-                             <div class="widget-content-left mr-3">
-                                 <div class="avatar-icon-wrapper">
-                                     <div class="badge badge-bottom badge-success badge-dot badge-dot-lg">
-                                     </div>
-                                     <div class="avatar-icon">
-                                         <img src="/architectui/assets/images/avatars/3.jpg" alt="">
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="widget-content-left">
-                                 <div class="widget-heading">Ella-Rose Henry</div>
-                                 <div class="widget-subheading">Etiam sit amet orci eget eros faucibus</div>
-                             </div>
-                         </div>
-                     </div>
-                 </button>
-             </li>
-             <li class="nav-item">
-                 <button type="button" tabindex="0" class="dropdown-item">
-                     <div class="widget-content p-0">
-                         <div class="widget-content-wrapper">
-                             <div class="widget-content-left mr-3">
-                                 <div class="avatar-icon-wrapper">
-                                     <div class="badge badge-bottom badge-success badge-dot badge-dot-lg">
-                                     </div>
-                                     <div class="avatar-icon">
-                                         <img src="/architectui/assets/images/avatars/2.jpg" alt="">
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="widget-content-left">
-                                 <div class="widget-heading">Ruben Tillman</div>
-                                 <div class="widget-subheading">Lorem ipsum dolor sit amet, consectetuer
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </button>
-             </li>
+                     </button>
+                 </li>
+             @empty
+                 <li class="nav-item">No User Found</li>
+             @endforelse
+
+
          </ul>
          <div class="app-inner-layout__sidebar-footer pb-3">
              <ul class="nav flex-column">

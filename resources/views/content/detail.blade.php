@@ -5,10 +5,11 @@
              <div class="row justify-content-center">
                  <div class="col-md-12">
                      <div class="car-details">
-                         <div class="img rounded" style="background-image: url(/landing-page/images/bg_1.jpg);"></div>
+                         <div class="img rounded"
+                             style="background-image: url(/landing-page/images/car-{{ rand(1, 12) }}.jpg);"></div>
                          <div class="text text-center">
-                             <span class="subheading">Cheverolet</span>
-                             <h2>Mercedes Grand Sedan</h2>
+                             <span class="subheading">{{ $car->car_type }}</span>
+                             <h2>{{ __($car->car_name) }}</h2>
                          </div>
                      </div>
                  </div>
@@ -157,92 +158,48 @@
 
                              <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel"
                                  aria-labelledby="pills-manufacturer-tab">
-                                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                     unorthographic life One day however a small line of blind text by the name of Lorem
-                                     Ipsum decided to leave for the far World of Grammar.</p>
-                                 <p>When she reached the first hills of the Italic Mountains, she had a last view back on
-                                     the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the
-                                     subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek,
-                                     then she continued her way.</p>
+                                 {!! $car->car_desc !!}
                              </div>
 
                              <div class="tab-pane fade" id="pills-review" role="tabpanel"
                                  aria-labelledby="pills-review-tab">
                                  <div class="row">
                                      <div class="col-md-7">
-                                         <h3 class="head">23 Reviews</h3>
-                                         <div class="review d-flex">
-                                             <div class="user-img"
-                                                 style="background-image: url(/landing-page/images/person_1.jpg)">
-                                             </div>
-                                             <div class="desc">
-                                                 <h4>
-                                                     <span class="text-left">Jacob Webb</span>
-                                                     <span class="text-right">14 March 2018</span>
-                                                 </h4>
-                                                 <p class="star">
-                                                     <span>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                     </span>
-                                                     <span class="text-right"><a href="#" class="reply"><i
-                                                                 class="icon-reply"></i></a></span>
-                                                 </p>
-                                                 <p>When she reached the first hills of the Italic Mountains, she had a last
-                                                     view back on the skyline of her hometown Bookmarksgrov</p>
-                                             </div>
-                                         </div>
-                                         <div class="review d-flex">
-                                             <div class="user-img"
-                                                 style="background-image: url(/landing-page/images/person_2.jpg)">
-                                             </div>
-                                             <div class="desc">
-                                                 <h4>
-                                                     <span class="text-left">Jacob Webb</span>
-                                                     <span class="text-right">14 March 2018</span>
-                                                 </h4>
-                                                 <p class="star">
-                                                     <span>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                     </span>
-                                                     <span class="text-right"><a href="#" class="reply"><i
-                                                                 class="icon-reply"></i></a></span>
-                                                 </p>
-                                                 <p>When she reached the first hills of the Italic Mountains, she had a last
-                                                     view back on the skyline of her hometown Bookmarksgrov</p>
-                                             </div>
-                                         </div>
-                                         <div class="review d-flex">
-                                             <div class="user-img"
-                                                 style="background-image: url(/landing-page/images/person_3.jpg)">
-                                             </div>
-                                             <div class="desc">
-                                                 <h4>
-                                                     <span class="text-left">Jacob Webb</span>
-                                                     <span class="text-right">14 March 2018</span>
-                                                 </h4>
-                                                 <p class="star">
-                                                     <span>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                         <i class="ion-ios-star"></i>
-                                                     </span>
-                                                     <span class="text-right"><a href="#" class="reply"><i
-                                                                 class="icon-reply"></i></a></span>
-                                                 </p>
-                                                 <p>When she reached the first hills of the Italic Mountains, she had a last
-                                                     view back on the skyline of her hometown Bookmarksgrov</p>
-                                             </div>
-                                         </div>
+                                         {{-- {{ dd($car->review) }} --}}
+                                         @if ($car->review)
+                                             <h3 class="head">
+                                                 {{ count($car->review) }} Reviews
+                                             </h3>
+                                             @forelse($car->review as $review)
+                                                 <div class="review d-flex">
+                                                     <div class="user-img"
+                                                         style="background-image: url(/landing-page/images/person_1.jpg)">
+                                                     </div>
+                                                     <div class="desc">
+                                                         <h4>
+                                                             <span class="text-left">{{ __($review->user->name) }}</span>
+                                                             <span class="text-right">14 March 2018</span>
+                                                         </h4>
+                                                         <p class="star">
+                                                             <span>
+                                                                 <i class="ion-ios-star"></i>
+                                                                 <i class="ion-ios-star"></i>
+                                                                 <i class="ion-ios-star"></i>
+                                                                 <i class="ion-ios-star"></i>
+                                                                 <i class="ion-ios-star"></i>
+                                                             </span>
+                                                             <span class="text-right"><a href="#" class="reply"><i
+                                                                         class="icon-reply"></i></a></span>
+                                                         </p>
+                                                         <p>{{ $review->desc }}</p>
+                                                     </div>
+                                                 </div>
+                                             @empty
+                                                 <p>No Review for this car</p>
+                                             @endforelse
+                                         @endif
+
+
                                      </div>
                                      <div class="col-md-5">
                                          <div class="rating-wrap">
