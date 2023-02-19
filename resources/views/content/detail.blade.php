@@ -100,6 +100,13 @@
                  <div class="col-md-12 pills">
                      <div class="bd-example bd-example-tabs">
                          <div class="d-flex justify-content-center">
+                             <form action="{{ route('main.book-car.store') }}" method="post">
+                                 @csrf
+                                 <input type="hidden" name="car_id" value="{{ request()->car }}">
+                                 <button class="btn btn-primary" type="submit">book now</button>
+                             </form>
+                         </div>
+                         <div class="d-flex justify-content-center">
                              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                                  <li class="nav-item">
@@ -118,7 +125,6 @@
                                  </li>
                              </ul>
                          </div>
-
                          <div class="tab-content" id="pills-tabContent">
                              <div class="tab-pane fade show active" id="pills-description" role="tabpanel"
                                  aria-labelledby="pills-description-tab">

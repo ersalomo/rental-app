@@ -64,4 +64,8 @@ class User extends Authenticatable
     // {
     //     return $this->hasOne(ReviewCar::class, 'user_id');
     // }
+    public function booking()
+    {
+        return $this->belongsTo(BookingCar::class, 'user_id');
+    }
 }

@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AuthController, MainController, DetailCarController};
+use App\Http\Controllers\{
+    AuthController,
+    MainController,
+    DetailCarController,
+    BookingController,
+};
 
 
 Route::view('sign-up', 'auth.register')->name('sign-up');
@@ -17,4 +22,5 @@ Route::group([
     Route::get('main', MainController::class)->name('main');
     Route::get('detail', DetailCarController::class)->name('detail');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::resource('book-car', BookingController::class);
 });

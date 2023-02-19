@@ -13,7 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('booking_cars', function (Blueprint $t) {
+            $t->id();
+            $t->foreignId('user_id')
+                ->constrained('users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $t->foreignId('car_id')
+                ->constrained('cars')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $t->text('message')->nullable();
+            $t->timestamps();
+        });
     }
 
     /**
@@ -23,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('booking_cars');
     }
 };
