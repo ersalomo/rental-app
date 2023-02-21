@@ -5,35 +5,14 @@
     <title>Rental App | {{ isset($title) ? $title : 'Rental App' }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="/landing-page/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="/landing-page/css/animate.css">
-
-    <link rel="stylesheet" href="/landing-page/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/landing-page/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/landing-page/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="/landing-page/css/aos.css">
-
-    <link rel="stylesheet" href="/landing-page/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="/landing-page/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="landing-page/css/jquery.timepicker.css">
-
-
-    <link rel="stylesheet" href="/landing-page/css/flaticon.css">
-    <link rel="stylesheet" href="/landing-page/css/icomoon.css">
-    <link rel="stylesheet" href="/landing-page/css/style.css">
+    @include('layouts.styles.css')
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+            <a class="navbar-brand" href="">Rental <span>App</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
@@ -59,9 +38,18 @@
                     <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
                         <a href="/contact" class="nav-link">Contact</a>
                     </li>
-                    <li class="nav-item {{ request()->is('sign-up') ? 'active' : '' }}">
-                        <a href="/sign-up" class="nav-link">Sign Up</a>
-                    </li>
+                    @auth()
+                        <li class="nav-item">
+                            <form action="{{ route('main.logout') }}" method="post">
+                                @csrf
+                                <input type="submit" class="nav-link bg-white border-0" value="Logout" />
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item {{ request()->is('sign-in') ? 'active' : '' }}">
+                            <a href="/sign-up" class="nav-link">Sign In</a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -75,7 +63,7 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
+                        <h2 class="ftco-heading-2"><a href="#" class="logo">Rental<span>App</span></a></h2>
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                             there live the blind texts.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
@@ -149,26 +137,10 @@
                 stroke="#eeeeee" />
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
                 stroke-miterlimit="10" stroke="#F96D00" />
-        </svg></div>
+        </svg>
+    </div>
 
-
-    <script src="/landing-page/js/jquery.min.js"></script>
-    <script src="/landing-page/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="/landing-page/js/popper.min.js"></script>
-    <script src="/landing-page/js/bootstrap.min.js"></script>
-    <script src="/landing-page/js/jquery.easing.1.3.js"></script>
-    <script src="/landing-page/js/jquery.waypoints.min.js"></script>
-    <script src="/landing-page/js/jquery.stellar.min.js"></script>
-    <script src="/landing-page/js/owl.carousel.min.js"></script>
-    <script src="/landing-page/js/jquery.magnific-popup.min.js"></script>
-    <script src="/landing-page/js/aos.js"></script>
-    <script src="/landing-page/js/jquery.animateNumber.min.js"></script>
-    <script src="/landing-page/js/bootstrap-datepicker.js"></script>
-    <script src="/landing-page/js/jquery.timepicker.min.js"></script>
-    <script src="/landing-page/js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="/landing-page/js/google-map.js"></script>
-    <script src="/landing-page/js/main.js"></script>
+    @include('layouts.styles.js')
 
 </body>
 

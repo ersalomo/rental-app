@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -33,6 +35,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $with = [
+        // 'review'
+    ];
     /**
      * The attributes that should be cast.
      *
@@ -41,4 +46,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * Hash password for credetials
+     */
+    protected function password(): Attribute
+    {
+        return new Attribute(set: fn ($value) => bcrypt($value));
+    }
+
+    public function message()
+    {
+    }
+    public function conversation()
+    {
+    }
+    // public function review()
+    // {
+    //     return $this->hasOne(ReviewCar::class, 'user_id');
+    // }
+    public function booking()
+    {
+        return $this->belongsTo(BookingCar::class, 'user_id');
+    }
 }
