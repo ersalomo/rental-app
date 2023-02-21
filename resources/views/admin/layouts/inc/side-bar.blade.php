@@ -82,12 +82,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.data-cars') }}">
+                            {{-- <a href="{{ route('admin.data-cars') }}"> --}}
+                            <a href="{{ route('admin.data-car', ['mode' => 'data']) }}">
                                 <i class="metismenu-icon"></i>Cars Data
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.add-car') }}">
+                            <a href="{{ route('admin.data-car', ['mode' => 'add']) }}">
                                 <i class="metismenu-icon"></i>Add Car
                             </a>
                         </li>

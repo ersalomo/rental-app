@@ -3277,6 +3277,7 @@
         });
     </script>
     <livewire:scripts />
+    @stack('scripts')
     {{-- @vite(['resources/js/bootstrap.js']) --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>

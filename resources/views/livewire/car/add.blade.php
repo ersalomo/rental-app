@@ -1,6 +1,9 @@
 <div class="main-card mb-3 card">
     <div class="card-body">
-        <form id="signupForm" class="col-md-10 mx-auto" wire:submit.prevent="addNewCar" novalidate="novalidate">
+        <form id="signupForm" class="col-md-10 mx-auto" novalidate="novalidate"
+            @if ($this->isModeAdd) wire:submit.prevent="addNewCar()"
+            @else
+                wire:submit.prevent="editCar()" @endif>
             <div class="form-group">
                 <x-input-form label="Car Name" model="car_name" />
                 @error('car_name')
@@ -41,7 +44,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <x-button type="submit" />
+                @if ($this->isModeAdd)
+                    <x-button type="submit" />
+                @else
+                    <x-button type="submit" name="Edit" />
+                @endif
             </div>
         </form>
     </div>

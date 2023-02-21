@@ -15,6 +15,7 @@ Route::group([
         MessageCreated::dispatch('Halllo');
         return view('admin.dashboard');
     });
-    Route::view('data-cars', 'admin.data.table-cars')->name('data-cars');
-    Route::view('add-car', 'admin.data.add-car')->name('add-car');
+    // Route::view('data-cars', 'admin.data.table-cars')->name('data-cars');
+    // Route::view('add-car/{id?}', 'admin.data.add-car')->name('add-car');
+    Route::view('car', 'admin.data.data-car')->name('data-car');
 });

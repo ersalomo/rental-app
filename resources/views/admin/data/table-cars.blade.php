@@ -1,3 +1,3 @@
-<x-app-layout>
+{{-- <x-app-layout>
     <livewire:table-car />
-</x-app-layout>
+</x-app-layout> --}}

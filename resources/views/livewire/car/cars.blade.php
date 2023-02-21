@@ -12,7 +12,8 @@
                     <div class="col-12 col-md-auto ms-auto d-print-none">
                         <div class="d-flex">
                             <input type="search" class="form-control d-inline-block w-10" placeholder="Search cars..">
-                            <a href="{{ route('admin.add-car') }}" class="btn btn-primary">
+                            {{-- <a href="{{ route('admin.add-car') }}" class="btn btn-primary"> --}}
+                            <a href="{{ route('admin.data-car', ['mode' => 'add']) }}" class="btn btn-primary">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -21,7 +22,6 @@
                                     <line x1="12" y1="5" x2="12" y2="19"></line>
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                 </svg>
-
                             </a>
                         </div>
                     </div>
@@ -53,12 +53,14 @@
                                 <div class="grid-menu grid-menu-2col">
                                     <div class="no-gutters row">
                                         <div class="col-sm-6">
-                                            <button class="btn btn-gradient-primary">
+                                            <a class="btn btn-gradient-primary"
+                                                href="{{ route('admin.data-car', ['mode' => 'edit', 'id_car' => $car->id]) }}">
                                                 Edit
-                                            </button>
+                                            </a>
                                         </div>
                                         <div class="col-sm-6">
-                                            <button class="btn btn-gradient-primary">
+                                            <button class="btn btn-gradient-primary"
+                                                wire:click="delete({{ $car->id }})">
                                                 Delete
                                             </button>
                                         </div>
@@ -76,3 +78,11 @@
             {{ $cars->links('pagination::bootstrap-5') }}
         </div>
     </div>
+    {{-- @push('scripts')
+        <script>
+            window.addEventListener('editCar', (e) => {
+                const id = e.target.id;
+                window.location.href = `/admin/add-car/${id}`
+            })
+        </script>
+    @endpush --}}
